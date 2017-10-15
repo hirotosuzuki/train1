@@ -20,7 +20,7 @@ install:
   - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
-  - conda env create --file train1.yaml
+  - conda env create --file train1.yml
   - source activate train1
   - python setup.py install
 
