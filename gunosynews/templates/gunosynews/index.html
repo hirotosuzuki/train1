@@ -1,0 +1,47 @@
+{% extends "gunosynews/base.html" %}
+{% load static%}
+
+{% block title %}mercari_watcher{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul id="sidebar" class="nav nav-sidebar">
+        <li class="active"><a href="#">商品検索</a></li>
+        <li><a href="{% url 'analysis' %}">分析</a></li>
+        <li><a href="#">エクスポート</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h2 class="page-header">商品の絞り込み</h2>
+
+      <h2 class="sub-header">一覧</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>値段</th>
+              <th>出品者</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in items %}
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.newest_price }}</td>
+                <td>{{ item.seller }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
